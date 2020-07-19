@@ -37,7 +37,7 @@
                         <div class="card-body">
                             @include('include.error')
                             <div class="form-group">
-                                <label for="name">Categor Name:</label>
+                                <label for="name">Tag Name:</label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter tag Name">
                             </div>
                             <div class="form-group">

@@ -130,7 +130,15 @@
               </ul>
             </li>
             <li class="nav-item mt-auto">
-            <a href="{{ route('tag.index') }}" class="nav-link">
+              <a href="{{ route('post.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                  Posts
+                </p>
+              </a>
+            </li>
+            <li class="nav-item mt-auto">
+              <a href="{{ route('tag.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-tag"></i>
                 <p>
                   Tags
@@ -178,10 +186,15 @@
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('admin/js/adminlte.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 <script>
   @if(Session::has('success'))
     toastr.success("{{ Session::get('success')}}");
   @endif
+
+  $(document).ready(function () {
+      bsCustomFileInput.init()
+  })
 </script>
 </body>
 </html>
