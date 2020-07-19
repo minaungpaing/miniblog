@@ -25,6 +25,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']],function(){
         return view('admin.dashboard');
     });
     Route::resource('category','CategoryController');
+
+    Route::resource('tag','TagController');
 });
 
 
