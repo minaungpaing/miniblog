@@ -50,12 +50,12 @@
                                 <td>{{ $post->id }}</td>
                                 <td>
                                     <div style="max-width:70px; max-height:70px; overflow:hidden">
-                                        <img src="{{asset($post->image)}}" class="img-fluid" alt="post_img">
+                                        <img src="{{asset('storage/postimg/'. $post->image) }}" class="img-fluid" alt="post_img">
                                     </div>
                                 </td>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ $post->category_id }}</td>
-                                <td>{{ $post->user_id }}</td>
+                                <td>{{ $post->category->name}}</td>
+                                <td>{{ $post->user->name }}</td>
                                 <td class="d-flex">
                                     <a href="{{route('post.edit',[$post->id])}}" class="btn btn-info btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                     <form action="{{route('post.destroy',[$post->id])}}" method="POST" class="mr-1">

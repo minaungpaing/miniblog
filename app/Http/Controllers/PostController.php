@@ -8,6 +8,8 @@ use App\Post;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Session;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -48,15 +50,27 @@ class PostController extends Controller
             'category' => 'required',
         ]);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'slug'  => Str::slug($request->title),
-            'image' => 'image.jpg',
-            'category_id' => $request->category,
-            'description'   => $request->description,
-            'user_id'   => Auth::id(),
-            'published_at' => Carbon::now(),
-        ]);
+       
+        $post = new Post ();
+        $post->title = $request->title;
+        $post->slug  = Str::slug($request->title);
+        $post->category_id = $request->category;
+        $post->description = $request->description;
+        $post->user_id     = Auth::id();
+        $post->published_at = Carbon::now();
+       
+        if ($request->hasfile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filepath  = pathinfo($extension,PATHINFO_FILENAME);
+            $fileNameToStore =time().'.'.$extension;
+            $path = $file->storeAs('public/postimg',$fileNameToStore);
+            $post->image = $fileNameToStore;
+        }else{
+            return $request;
+            $post->image = ' ';
+        }
+        $post->save();
 
         Session::flash('success','Post created successfully');
     
@@ -82,7 +96,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+       $categories = Category::all();
+       return view('admin.post.edit',compact('post','categories'));
     }
 
     /**
@@ -94,7 +109,33 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+        ]);
+        $post->title = $request->title;
+        $post->slug  = Str::slug($request->title);
+        $post->description = $request->description;
+        $post->category_id = $request->category;
+        if( $request->hasFile('image')){
+            if($post->image){
+                Storage::delete('public/postimg/'.$post->image);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filepath  = pathinfo($extension,PATHINFO_FILENAME);
+            $fileNameToStore =time().'.'.$extension;
+            $path = $file->storeAs('public/postimg',$fileNameToStore);
+
+            $post->image = $fileNameToStore;
+        }
+
+        $post->save();
+
+        Session::flash('success','Post Updated successfully');
+    
+        return redirect()->route('post.index');
     }
 
     /**
@@ -104,7 +145,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
-        //
+    {  
+        if($post){
+            Storage::delete('public/postimg/'.$post->image);
+            $post->delete();
+            Session::flash('success','Post deleted Successfully');
+            return redirect()->route('post.index');
+        }
     }
 }

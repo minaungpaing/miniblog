@@ -131,7 +131,7 @@
             </li>
             <li class="nav-item mt-auto">
               <a href="{{ route('post.index') }}" class="nav-link">
-                <i class="nav-icon fas fa-list"></i>
+                <i class="nav-icon fas fa-pen-square"></i>
                 <p>
                   Posts
                 </p>
@@ -139,7 +139,7 @@
             </li>
             <li class="nav-item mt-auto">
               <a href="{{ route('tag.index') }}" class="nav-link">
-                <i class="nav-icon fas fa-tag"></i>
+                <i class="nav-icon fas fa-tags"></i>
                 <p>
                   Tags
                 </p>
@@ -147,7 +147,7 @@
             </li>
             <li class="nav-item mt-auto">
             <a href="{{ route('category.index') }}" class="nav-link">
-                <i class="nav-icon fas fa-tags"></i>
+                <i class="nav-icon fas fa-list"></i>
                 <p>
                   Category
                 </p>
