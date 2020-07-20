@@ -60,7 +60,7 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->user_id     = Auth::id();
         $post->published_at = Carbon::now();
-       
+            
         if ($request->hasfile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -73,7 +73,8 @@ class PostController extends Controller
             $post->image = ' ';
         }
         $post->save();
-
+        $post->tags()->attach($request->tags);
+        
         Session::flash('success','Post created successfully');
     
         return redirect()->route('post.index');
@@ -98,8 +99,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+       $tags = Tag::all();
        $categories = Category::all();
-       return view('admin.post.edit',compact('post','categories'));
+       return view('admin.post.edit',compact('post','categories','tags'));
     }
 
     /**
@@ -134,6 +136,7 @@ class PostController extends Controller
         }
 
         $post->save();
+        $post->tags()->sync($request->tags);
 
         Session::flash('success','Post Updated successfully');
     

@@ -40,6 +40,7 @@
                             <th>Title</th>
                             <th>Category</th>
                             <th>User</th>
+                            <th>Tags</th>
                             <th style="width: 40px">Action</th>
                             </tr>
                         </thead>
@@ -56,6 +57,11 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->category->name}}</td>
                                 <td>{{ $post->user->name }}</td>
+                                <td>
+                                    @foreach ($post->tags as $tag)
+                                        <span class="badge badge-info">{{$tag->name}}</span>
+                                    @endforeach
+                                </td>
                                 <td class="d-flex">
                                     <a href="{{route('post.edit',[$post->id])}}" class="btn btn-info btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                     <form action="{{route('post.destroy',[$post->id])}}" method="POST" class="mr-1">
