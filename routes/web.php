@@ -3,23 +3,17 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('website.index');
-});
-Route::get('/contact',function (){
-    return view('website.contact');
-});
-Route::get('/post',function (){
-    return view('website.post');
-});
-Route::get('/about',function (){
-    return view('website.about');
-});
-Route::get('/category',function (){
-    return view('website.category');
-});
+// frontendController
+
+Route::get('/','FrontEndController@home' )->name('web');
+Route::get('/post','FrontEndController@post' );
+Route::get('/contact','FrontEndController@contact' );
+Route::get('/about','FrontEndController@about' );
+Route::get('/category','FrontEndController@category' );
+
 
 //admin Panel 
+
 Route::group(['prefix'=>'admin','middleware' => ['auth']],function(){
     Route::get('/dashboard',function(){
         return view('admin.dashboard');
@@ -36,3 +30,25 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
+
+// online image adding
+
+Route::get('/test',function(){
+    $posts = App\Post::all();
+    $id = 60;
+
+    foreach($posts as $post){
+        $post->image ="https://picsum.photos/id/".$id."/600/400.jpg";
+        $post->save();
+        $id++; 
+    }
+   
+    return $posts;
+});

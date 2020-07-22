@@ -164,6 +164,13 @@
                 </p>
               </a>
             </li>
+            <li class="text-center mt-4">
+            <a href="{{ route('web') }}" class="btn btn-primary text-white" target="_blank">                
+                <p class="mb-0">
+                <i class="nav-icon fa fa-eye"></i> View Website
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

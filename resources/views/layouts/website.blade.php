@@ -50,7 +50,7 @@
           <div class="col-8 text-right">
             <nav class="site-navigation" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
-                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{route('web')}}">Home</a></li>
                 <li><a href="category.html">Politics</a></li>
                 <li><a href="category.html">Tech</a></li>
                 <li><a href="category.html">Entertainment</a></li>
@@ -109,10 +109,8 @@
         <div class="row">
           <div class="col-12 text-center">
             <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </p>
+              Developed By: Min Aung Paing
+            </p>
           </div>
         </div>
       </div>

@@ -51,7 +51,8 @@
                                 <td>{{ $post->id }}</td>
                                 <td>
                                     <div style="max-width:70px; max-height:70px; overflow:hidden">
-                                        <img src="{{asset('storage/postimg/'. $post->image) }}" class="img-fluid" alt="post_img">
+                                        <img src="{{asset( $post->image) }}" class="img-fluid" alt="post_img">
+                                        <!-- <img src="{{asset('storage/postimg/'. $post->image) }}" class="img-fluid" alt="post_img"> -->
                                     </div>
                                 </td>
                                 <td>{{ $post->title }}</td>
