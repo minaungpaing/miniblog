@@ -5,11 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 // frontendController
 
-Route::get('/','FrontEndController@home' )->name('web');
-Route::get('/post','FrontEndController@post' );
-Route::get('/contact','FrontEndController@contact' );
-Route::get('/about','FrontEndController@about' );
-Route::get('/category','FrontEndController@category' );
+Route::get('/','FrontendController@home' )->name('web');
+Route::get('/post','FrontendController@post' );
+Route::get('/contact','FrontendController@contact' );
+Route::get('/about','FrontendController@about' );
+Route::get('/category','FrontendController@category' );
 
 
 //admin Panel 
@@ -40,15 +40,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // online image adding
 
-Route::get('/test',function(){
-    $posts = App\Post::all();
-    $id = 60;
+// Route::get('/test',function(){
+//     $posts = App\Post::all();
+//     $id = 60;
 
-    foreach($posts as $post){
-        $post->image ="https://picsum.photos/id/".$id."/600/400.jpg";
-        $post->save();
-        $id++; 
-    }
+//     foreach($posts as $post){
+//         $post->image ="https://picsum.photos/id/".$id."/600/400.jpg";
+//         $post->save();
+//         $id++; 
+//     }
    
-    return $posts;
-});
+//     return $posts;
+// });
