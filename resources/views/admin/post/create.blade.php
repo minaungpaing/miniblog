@@ -51,12 +51,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                            @foreach($tags as $tag)
-                                <div class="checkbox">                                    
+                            <label>Choose Post Tags</label>
+                            <div class="d-flex flex-wrap">
+                            @foreach($tags as $tag)                            
+                                <div class="checkbox" style="margin-right:20px;">                                    
                                     <input type="checkbox" id="tag{{$tag->id}}" value="{{$tag->id}}" name="tags[]">
                                     <label for="tag{{$tag->id}}">{{ $tag->name}}</label>
-                                </div>
+                                </div>                                                    
                             @endforeach
+                            </div>        
                             </div>
                             <div class="form-group">
                                 <label for="img">Image:</label>

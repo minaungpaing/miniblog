@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -195,6 +196,16 @@
   $(document).ready(function () {
       bsCustomFileInput.init()
   })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#description').summernote({
+        placeholder: 'Post Description',
+        tabsize: 2,
+        height: 100
+      });
+    });
 </script>
 </body>
 </html>

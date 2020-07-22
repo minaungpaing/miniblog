@@ -63,13 +63,13 @@
                                     @endforeach
                                 </td>
                                 <td class="d-flex">
+                                    <a href="{{route('post.show',[$post->id])}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-eye"></i></a>
                                     <a href="{{route('post.edit',[$post->id])}}" class="btn btn-info btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                     <form action="{{route('post.destroy',[$post->id])}}" method="POST" class="mr-1">
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                    <!-- <a href="{{route('post.show',[$post->id])}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-eye"></i></a> -->
+                                    </form>                                   
                                 </td>
                             </tr>
                             @endforeach

@@ -52,8 +52,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                            <label>Post Tags</label>
+                            <div class="d-flex flex-wrap">
                             @foreach($tags as $tag)
-                                <div class="checkbox">                                    
+                                <div class="checkbox" style="margin-right:20px;">                                    
                                     <input type="checkbox" id="tag{{$tag->id}}" value="{{$tag->id}}" name="tags[]" 
                                     @foreach ($post->tags as $t)
                                         @if( $tag->id == $t->id)
@@ -64,6 +66,7 @@
                                     <label for="tag{{$tag->id}}">{{ $tag->name}}</label>
                                 </div>
                             @endforeach
+                            </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
