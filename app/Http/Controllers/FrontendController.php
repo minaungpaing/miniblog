@@ -7,9 +7,19 @@ use App\Post;
 class FrontendController extends Controller
 {
    public function home(){
-       $posts = Post::orderBy('created_at','DESC')->take(5)->get();
+       $posts = Post::all()->take(5);
+       $firstpost2 = $posts->splice(0,2);
+       $middlepost = $posts->splice(0,1);
+       $lastpost   = $posts->splice(0);
+
+       $footerPost = Post::inRandomOrder()->limit(4)->get();
+       $firstFooterPost = $footerPost->splice(0,1);
+       $firstFooterPost2 = $footerPost->splice(0,2);
+       $lastFooterPost = $footerPost->splice(0,1);
+
        $recentPosts = Post::orderBy('created_at','DESC')->paginate(9);
-       return view('website.index',compact('posts','recentPosts'));
+       return view('website.index',compact('posts','recentPosts','firstpost2','middlepost','lastpost'
+       ,'firstFooterPost','firstFooterPost2','lastFooterPost'));
    }
    public function about(){
        return view('website.about');
