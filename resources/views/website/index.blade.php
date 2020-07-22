@@ -64,7 +64,7 @@
         @foreach ($recentPosts as $recent)
           <div class="col-lg-4 mb-4">
             <div class="entry2">
-              <a href="single.html"><img src="{{asset($recent->image) }}" alt="Image" class="img-fluid rounded"></a>
+              <a href="{{route('post',['slug' => $recent->slug ])}}"><img src="{{asset($recent->image) }}" alt="Image" class="img-fluid rounded"></a>
               <div class="excerpt">
               <span class="post-category text-white bg-secondary mb-3">{{ $recent->category->name }}</span>
 
@@ -72,10 +72,10 @@
               <div class="post-meta align-items-center text-left clearfix">
                 <figure class="author-figure mb-0 mr-3 float-left"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
                 <span class="d-inline-block mt-1">By <a href="#">{{ $recent->user->name }}</a></span>
-                <span>&nbsp;-&nbsp; July 19, 2019</span>
+                <span>&nbsp;-&nbsp; {{ $recent->created_at->format('M d, Y')}}</span>
               </div>
               
-                <p>{{ $recent->description}}</p>
+                <p>{{ Str::limit($recent->description,120) }}</p>
                 <p><a href="#">Read More</a></p>
               </div>
             </div>

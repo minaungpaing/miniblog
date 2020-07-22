@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // frontendController
 
 Route::get('/','FrontendController@home' )->name('web');
-Route::get('/post','FrontendController@post' );
+Route::get('/post/{slug}','FrontendController@post')->name('post');
 Route::get('/contact','FrontendController@contact' );
 Route::get('/about','FrontendController@about' );
 Route::get('/category','FrontendController@category' );

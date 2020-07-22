@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
 @section('content')
-    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/img_2.jpg');">
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('images/img_2.jpg')}}');">
       <div class="container">
         <div class="row same-height justify-content-center">
           <div class="col-md-12 col-lg-10">
@@ -9,7 +9,7 @@
               <span class="post-category text-white bg-success mb-3">Nature</span>
               <h1 class="mb-4"><a href="#">The AI magically removes moving objects from videos.</a></h1>
               <div class="post-meta align-items-center text-center">
-                <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+                <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="{{asset('images/person_1.jpg')}}" alt="Image" class="img-fluid"></figure>
                 <span class="d-inline-block mt-1">By Carrol Atkinson</span>
                 <span>&nbsp;-&nbsp; February 10, 2019</span>
               </div>
@@ -32,13 +32,13 @@
             <p>Quis eius aspernatur, eaque culpa cumque reiciendis, nobis at earum assumenda similique ut? Aperiam vel aut, ex exercitationem eos consequuntur eaque culpa totam, deserunt, aspernatur quae eveniet hic provident ullam tempora error repudiandae sapiente illum rerum itaque voluptatem. Commodi, sequi.</p>
             <div class="row mb-5 mt-5">
               <div class="col-md-12 mb-4">
-                <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
+                <img src="{{asset('images/img_1.jpg')}}" alt="Image placeholder" class="img-fluid rounded">
               </div>
               <div class="col-md-6 mb-4">
-                <img src="images/img_2.jpg" alt="Image placeholder" class="img-fluid rounded">
+                <img src="{{asset('images/img_2.jpg')}}" alt="Image placeholder" class="img-fluid rounded">
               </div>
               <div class="col-md-6 mb-4">
-                <img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid rounded">
+                <img src="{{asset('images/img_3.jpg')}}" alt="Image placeholder" class="img-fluid rounded">
               </div>
             </div>
             <p>Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.</p>
@@ -60,7 +60,7 @@
               <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
+                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>Jean Doe</h3>
@@ -72,7 +72,7 @@
 
                 <li class="comment">
                   <div class="vcard">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
+                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>Jean Doe</h3>
@@ -84,7 +84,7 @@
                   <ul class="children">
                     <li class="comment">
                       <div class="vcard">
-                        <img src="images/person_1.jpg" alt="Image placeholder">
+                        <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
                       </div>
                       <div class="comment-body">
                         <h3>Jean Doe</h3>
@@ -97,7 +97,7 @@
                       <ul class="children">
                         <li class="comment">
                           <div class="vcard">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
+                            <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
                           </div>
                           <div class="comment-body">
                             <h3>Jean Doe</h3>
@@ -109,7 +109,7 @@
                             <ul class="children">
                               <li class="comment">
                                 <div class="vcard">
-                                  <img src="images/person_1.jpg" alt="Image placeholder">
+                                  <img src="{{ asset('images/person_1.jpg')}}" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
                                   <h3>Jean Doe</h3>
@@ -127,7 +127,7 @@
 
                 <li class="comment">
                   <div class="vcard">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
+                    <img src="{{ asset('images/person_1.jpg')}}" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>Jean Doe</h3>
@@ -183,7 +183,7 @@
             <!-- END sidebar-box -->
             <div class="sidebar-box">
               <div class="bio text-center">
-                <img src="images/person_2.jpg" alt="Image Placeholder" class="img-fluid mb-5">
+                <img src="{{ asset('images/person_2.jpg')}}" alt="Image Placeholder" class="img-fluid mb-5">
                 <div class="bio-body">
                   <h2>Craig David</h2>
                   <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
@@ -204,7 +204,7 @@
                 <ul>
                   <li>
                     <a href="">
-                      <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
+                      <img src="{{ asset('images/img_1.jpg')}}" alt="Image placeholder" class="mr-4">
                       <div class="text">
                         <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
                         <div class="post-meta">
@@ -215,7 +215,7 @@
                   </li>
                   <li>
                     <a href="">
-                      <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
+                      <img src="{{ asset('images/img_2.jpg')}}" alt="Image placeholder" class="mr-4">
                       <div class="text">
                         <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
                         <div class="post-meta">
@@ -226,7 +226,7 @@
                   </li>
                   <li>
                     <a href="">
-                      <img src="images/img_3.jpg" alt="Image placeholder" class="mr-4">
+                      <img src="{{ asset('images/img_3.jpg')}}" alt="Image placeholder" class="mr-4">
                       <div class="text">
                         <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
                         <div class="post-meta">

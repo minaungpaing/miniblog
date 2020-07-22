@@ -17,7 +17,13 @@ class FrontendController extends Controller
    public function contact(){
     return view('website.contact');
    }
-   public function post(){
-    return view('website.post');
+   public function post($slug){
+    $post = Post::where('slug',$slug)->first();
+    
+    if($post){
+        return view('website.post',compact('post'));
+    }else{
+        return redirect('/');
+    }
     }
 }
