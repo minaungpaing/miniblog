@@ -32,7 +32,7 @@
           @endforeach
           <div class="col-md-4">
             @foreach( $lastpost as $post)
-            <a href="single.html" class="h-entry mb-30 v-height gradient" style="background-image: url('{{$post->image}}');">
+            <a href="{{route('post',['slug' => $post->slug ])}}" class="h-entry mb-30 v-height gradient" style="background-image: url('{{$post->image}}');">
               
               <div class="text">
                 <h2>{{ $post->title}}</h2>
@@ -86,7 +86,7 @@
         <div class="row align-items-stretch retro-layout">
           @foreach($firstFooterPost as $post)
           <div class="col-md-5 order-md-2">
-            <a href="single.html" class="hentry img-1 h-100 gradient" style="background-image: url('{{$post->image}}');">
+            <a href="{{route('post',['slug' => $post->slug ])}}" class="hentry img-1 h-100 gradient" style="background-image: url('{{$post->image}}');">
               <span class="post-category text-white bg-danger">{{$post->category->name}}</span>
               <div class="text">
                 <h2>{{ $post->title}}</h2>
@@ -96,30 +96,25 @@
           </div>
           @endforeach
           <div class="col-md-7">
-            
-            <a href="single.html" class="hentry img-2 v-height mb30 gradient" style="background-image: url('images/img_1.jpg');">
-              <span class="post-category text-white bg-success">Nature</span>
+          @foreach($lastFooterPost as $p)
+            <a href="{{route('post',['slug' => $p->slug ])}}" class="hentry img-2 v-height mb30 gradient" style="background-image: url('{{ $p->image}}');">
+              <span class="post-category text-white bg-success">{{ $p->category->name}}</span>
               <div class="text text-sm">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span>February 12, 2019</span>
+                <h2>{{ $p->title}}</h2>
+                <span>{{ $p->created_at->format('M d, Y')}}</span>
               </div>
             </a>
-           
-            <div class="two-col d-block d-md-flex">
-              <a href="single.html" class="hentry v-height img-2 gradient" style="background-image: url('images/img_2.jpg');">
-                <span class="post-category text-white bg-primary">Sports</span>
+           @endforeach
+            <div class="two-col d-block d-md-flex justify-content-between">
+            @foreach($firstFooterPost2 as $p1)
+              <a href="{{route('post',['slug' => $p1->slug ])}}" class="hentry v-height img-2 gradient" style="background-image: url('{{$p1->image}}');">
+                <span class="post-category text-white bg-primary">{{ $p1->category->name}}</span>
                 <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
+                  <h2>{{$p1->name}}</h2>
+                  <span>{{ $p1->created_at->format('M d, Y')}}</span>
                 </div>
               </a>
-              <a href="single.html" class="hentry v-height img-2 ml-auto gradient" style="background-image: url('images/img_3.jpg');">
-                <span class="post-category text-white bg-warning">Lifestyle</span>
-                <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
-                </div>
-              </a>
+            @endforeach
             </div>  
             
           </div>
