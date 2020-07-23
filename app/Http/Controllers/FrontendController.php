@@ -34,6 +34,9 @@ class FrontendController extends Controller
         return view('website.post',compact('post'));
     }else{
         return redirect('/');
+        }
     }
+    public function category(){
+        return view('website.category');
     }
 }

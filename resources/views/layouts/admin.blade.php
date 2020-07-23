@@ -156,14 +156,12 @@
               </a>
             </li>
             <li class="nav-item mt-auto bg-danger">
-            <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();" class="nav-link">
-                <i class="nav-icon fas fa-sign-out-alt"></i>
-                <p>
-                  Logout
-                </p>
-              </a>
+            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                Logout
+            </a>    
+            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
             </li>
             <li class="text-center mt-4">
             <a href="{{ route('web') }}" class="btn btn-primary text-white" target="_blank">                
