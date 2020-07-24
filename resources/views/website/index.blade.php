@@ -110,7 +110,7 @@
               <a href="{{route('post',['slug' => $p1->slug ])}}" class="hentry v-height img-2 gradient" style="background-image: url('{{$p1->image}}');">
                 <span class="post-category text-white bg-primary">{{ $p1->category->name}}</span>
                 <div class="text text-sm">
-                  <h2>{{$p1->name}}</h2>
+                  <h2>{{$p1->title}}</h2>
                   <span>{{ $p1->created_at->format('M d, Y')}}</span>
                 </div>
               </a>
