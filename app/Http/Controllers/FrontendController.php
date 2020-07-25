@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 class FrontendController extends Controller
 {
    public function home(){
@@ -33,10 +34,16 @@ class FrontendController extends Controller
     if($post){
         return view('website.post',compact('post'));
     }else{
-        return redirect('/');
+        return redirect()->route('web');
         }
     }
-    public function category(){
-        return view('website.category');
+    public function category($slug){
+        $category = Category::where('slug',$slug)->first();
+        if($category){
+            $posts = Post::where('category_id',$category->id)->paginate(9);
+            return view('website.category',compact('category','posts'));
+        }else{
+            return redirect()->route('web');
+        }        
     }
 }

@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','FrontendController@home' )->name('web');
 Route::get('/post/{slug}','FrontendController@post')->name('post');
-Route::get('/contact','FrontendController@contact' );
-Route::get('/about','FrontendController@about' );
-Route::get('/category','FrontendController@category' );
+Route::get('/contact','FrontendController@contact')->name('contact');
+Route::get('/about','FrontendController@about')->name('about');
+Route::get('/category/{slug}','FrontendController@category')->name('category');
 
 
 //admin Panel 

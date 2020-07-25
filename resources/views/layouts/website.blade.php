@@ -44,18 +44,16 @@
           </div>
 
           <div class="col-4 site-logo">
-            <a href="index.html" class="text-black h2 mb-0">Mini Blog</a>
+            <a href="{{route('web')}}" class="text-black h2 mb-0">Mini Blog</a>
           </div>
 
           <div class="col-8 text-right">
             <nav class="site-navigation" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
-                <li><a href="{{route('web')}}">Home</a></li>
-                <li><a href="category.html">Politics</a></li>
-                <li><a href="category.html">Tech</a></li>
-                <li><a href="category.html">Entertainment</a></li>
-                <li><a href="category.html">Travel</a></li>
-                <li><a href="category.html">Sports</a></li>
+                
+                @foreach($categories as $category )
+                <li><a href="{{route('category',['slug' => $category->slug] )}}">{{ $category->name }}</a></li>
+                @endforeach
                 <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
               </ul>
             </nav>
@@ -79,8 +77,8 @@
           <div class="col-md-3 ml-auto">
             <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
             <ul class="list-unstyled float-left mr-5">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Advertise</a></li>
+              <li><a href="{{route('about')}}">About Us</a></li>
+              <li><a href="{{route('contact')}}">Contact Us</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">Subscribes</a></li>
             </ul>
